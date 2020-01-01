@@ -19,7 +19,7 @@ public class SQLHelperInjection extends JavaPlugin {
         }
 
         try {
-            helper.download("", "https://github.com/Alviannn/SQLHelper/releases/download/2.4/SQLHelper-2.4.jar", dir.toPath());
+            helper.download("SQLHelper-2.4.jar", "https://github.com/Alviannn/SQLHelper/releases/download/2.4/SQLHelper-2.4.jar", dir.toPath());
         } catch (IOException e) {
             e.printStackTrace();
         }
