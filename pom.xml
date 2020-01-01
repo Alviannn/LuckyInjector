@@ -6,7 +6,7 @@
 
     <groupId>dev.luckynetwork.ldd.sqlhelperinjection</groupId>
     <artifactId>SQLHelperInjection</artifactId>
-    <version>BETA</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <developers>
