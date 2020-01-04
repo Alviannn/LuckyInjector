@@ -1,6 +1,6 @@
-name: ${project.artifactId}
+name: SQLHelperInjection
 version: ${project.version}
-main: ${project.groupId}.${project.artifactId}
+main: ${project.groupId}.spigot.SQLHelperInjection
 
 authors: [Alviann]
 description: This plugin is created to help SQLHelper injection to a server

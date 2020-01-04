@@ -1,0 +1,5 @@
+name: SQLHelperInjectionBungee
+version: ${project.version}
+author: Alviann
+main: ${project.groupId}.bungee.SQLHelperInjectionBungee
+description: This plugin is created to help SQLHelper injection to a server
