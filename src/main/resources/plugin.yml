@@ -1,6 +1,6 @@
 name: SQLHelperInjection
 version: ${project.version}
-main: ${project.groupId}.spigot.SQLHelperInjection
+main: ${project.groupId}.bukkit.SQLHelperInjection
 
 authors: [Alviann]
 description: This plugin is created to help SQLHelper injection to a server
