@@ -1,10 +1,10 @@
-package dev.luckynetwork.alviann.sqlhelperinjection.bungee;
+package dev.luckynetwork.alviann.sqlhelperinjection.bukkit;
 
 import dev.luckynetwork.alviann.sqlhelperinjection.loader.Loader;
 import lombok.SneakyThrows;
-import net.md_5.bungee.api.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
-public class SQLHelperInjectionBungee extends Plugin {
+public class SQLHelperInjection extends JavaPlugin {
 
     @SneakyThrows
     @Override
@@ -13,7 +13,7 @@ public class SQLHelperInjectionBungee extends Plugin {
     }
 
     public static void loadEarly() throws Exception {
-        SQLHelperInjectionBungee instance = new SQLHelperInjectionBungee();
+        SQLHelperInjection instance = new SQLHelperInjection();
 
         Loader.injectSQLHelper(instance.getClass(), instance.getDataFolder());
     }

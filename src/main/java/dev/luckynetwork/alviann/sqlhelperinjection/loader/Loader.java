@@ -1,20 +1,19 @@
-package dev.luckynetwork.alviann.sqlhelperinjection.utils;
+package dev.luckynetwork.alviann.sqlhelperinjection.loader;
 
 import com.github.alviannn.lib.dependencyhelper.DependencyHelper;
 
 import java.io.File;
-import java.io.IOException;
 
-public class Utils {
+public class Loader {
 
     /**
      * injects the SQL Helper to server
      *
-     * @param clazz the main class
+     * @param clazz      the main class
      * @param dataFolder the data folder
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public static void injectSQLHelper(Class<?> clazz, File dataFolder) throws IOException, IllegalAccessException {
+    public static void injectSQLHelper(Class<?> clazz, File dataFolder) throws Exception {
         DependencyHelper helper = new DependencyHelper(clazz.getClassLoader());
         File dir = new File(dataFolder, "libs");
 
