@@ -1,5 +1,5 @@
-name: SQLHelperInjectionBungee
+name: LuckyInjector
 version: ${project.version}
 author: Alviann
-main: ${project.groupId}.bungee.SQLHelperInjectionBungee
-description: This plugin is created to help SQLHelper injection to a server
+main: ${project.groupId}.bungee.BungeeInjector
+description: ${plugin.description}

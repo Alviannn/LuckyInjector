@@ -1,6 +1,6 @@
-name: SQLHelperInjection
+name: LuckyInjector
 version: ${project.version}
-main: ${project.groupId}.bukkit.SQLHelperInjection
+main: ${project.groupId}.bukkit.Injector
 
 authors: [Alviann]
-description: This plugin is created to help SQLHelper injection to a server
+description: ${plugin.description}
