@@ -1,4 +1,4 @@
-name: LuckyInjector
+name: ${project.artifactId}
 version: ${project.version}
 author: Alviann
 main: ${project.groupId}.bungee.BungeeInjector

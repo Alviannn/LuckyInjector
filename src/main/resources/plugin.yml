@@ -1,4 +1,4 @@
-name: LuckyInjector
+name: ${project.artifactId}
 version: ${project.version}
 main: ${project.groupId}.bukkit.Injector
 
