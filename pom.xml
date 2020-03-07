@@ -107,6 +107,12 @@
                         </goals>
                     </execution>
                 </executions>
+
+                <configuration>
+                    <javadocDirectory>src/javadoc</javadocDirectory>
+                    <outputDirectory>src/javadoc</outputDirectory>
+                    <reportOutputDirectory>src/javadoc</reportOutputDirectory>
+                </configuration>
             </plugin>
         </plugins>
     </build>
