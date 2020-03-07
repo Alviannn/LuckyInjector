@@ -109,9 +109,9 @@
                 </executions>
 
                 <configuration>
-                    <javadocDirectory>src/javadoc</javadocDirectory>
-                    <outputDirectory>src/javadoc</outputDirectory>
-                    <reportOutputDirectory>src/javadoc</reportOutputDirectory>
+                    <javadocDirectory>src/docs</javadocDirectory>
+                    <outputDirectory>src/docs</outputDirectory>
+                    <reportOutputDirectory>src/docs</reportOutputDirectory>
                 </configuration>
             </plugin>
         </plugins>
