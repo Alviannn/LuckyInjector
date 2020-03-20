@@ -19,14 +19,13 @@ public class Loader {
     public static void startInjecting(Class<?> clazz, File dataFolder) throws Exception {
         DependencyHelper helper = new DependencyHelper(clazz.getClassLoader());
 
-        if (!dataFolder.exists()) {
+        if (!dataFolder.exists())
             dataFolder.mkdir();
-        }
 
         Path dirPath = dataFolder.toPath();
         Map<String, String> downloadMap = new HashMap<>();
 
-        downloadMap.put("SQLHelper-2.4.jar", "https://github.com/Alviannn/SQLHelper/releases/download/2.4/SQLHelper-2.4.jar");
+        downloadMap.put("SQLHelper-2.5.jar", "https://github.com/Alviannn/SQLHelper/releases/download/2.5/SQLHelper-2.5.jar");
 
         helper.download(downloadMap, dirPath);
         helper.loadDir(dirPath);

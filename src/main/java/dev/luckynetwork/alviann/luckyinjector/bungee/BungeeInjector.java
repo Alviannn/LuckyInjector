@@ -17,17 +17,9 @@ public class BungeeInjector extends Plugin {
         Loader.startInjecting(this.getClass(), this.getDataFolder());
     }
 
-    @SneakyThrows
-    @Override
-    public void onLoad() {
-        instance = this;
-        Loader.startInjecting(this.getClass(), this.getDataFolder());
-    }
-
     public static void loadEarly() throws Exception {
-        if (instance == null) {
+        if (instance == null)
             instance = new BungeeInjector();
-        }
 
         Loader.startInjecting(instance.getClass(), instance.getDataFolder());
     }

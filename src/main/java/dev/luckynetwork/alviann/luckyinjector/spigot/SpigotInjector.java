@@ -1,4 +1,4 @@
-package dev.luckynetwork.alviann.luckyinjector.bukkit;
+package dev.luckynetwork.alviann.luckyinjector.spigot;
 
 import dev.luckynetwork.alviann.luckyinjector.loader.Loader;
 import lombok.Getter;
@@ -6,9 +6,9 @@ import lombok.SneakyThrows;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @SuppressWarnings("unused")
-public class Injector extends JavaPlugin {
+public class SpigotInjector extends JavaPlugin {
 
-    @Getter private static Injector instance;
+    @Getter private static SpigotInjector instance;
 
     @SneakyThrows
     @Override
@@ -17,17 +17,9 @@ public class Injector extends JavaPlugin {
         Loader.startInjecting(this.getClass(), this.getDataFolder());
     }
 
-    @SneakyThrows
-    @Override
-    public void onLoad() {
-        instance = this;
-        Loader.startInjecting(this.getClass(), this.getDataFolder());
-    }
-
     public static void loadEarly() throws Exception {
-        if (instance == null) {
-            instance = new Injector();
-        }
+        if (instance == null)
+            instance = new SpigotInjector();
 
         Loader.startInjecting(instance.getClass(), instance.getDataFolder());
     }
