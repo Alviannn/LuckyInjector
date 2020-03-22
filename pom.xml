@@ -142,10 +142,10 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
-        <!-- PaperMC Spigot repo -->
+        <!-- Spigot repo -->
         <repository>
-            <id>papermc-spigot-repo</id>
-            <url>https://papermc.io/repo/repository/SpigotMC-Hub-Proxy/</url>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
         <!-- Bungee-repo -->
         <repository>
@@ -155,10 +155,10 @@
     </repositories>
 
     <dependencies>
-        <!-- SpigotMC -->
+        <!-- Spigot API -->
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
+            <artifactId>spigot-api</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
