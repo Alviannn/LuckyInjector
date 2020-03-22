@@ -87,8 +87,8 @@
                             <shadedPattern>${project.groupId}.lib.google.errorprone.annotations</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>com.google.j2obj.annotations</pattern>
-                            <shadedPattern>${project.groupId}.lib.google.j2obj.annotations</shadedPattern>
+                            <pattern>com.google.j2objc.annotations</pattern>
+                            <shadedPattern>${project.groupId}.lib.google.j2objc.annotations</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>com.google.thirdparty.publicsuffix</pattern>
