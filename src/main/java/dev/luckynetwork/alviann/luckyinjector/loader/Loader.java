@@ -12,12 +12,12 @@ public class Loader {
     /**
      * injects the SQL Helper to server
      *
-     * @param clazz      the main class
-     * @param dataFolder the data folder
+     * @param clazz the main class
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public static void startInjecting(Class<?> clazz, File dataFolder) throws Exception {
+    public static void startInjecting(Class<?> clazz) throws Exception {
         DependencyHelper helper = new DependencyHelper(clazz.getClassLoader());
+        File dataFolder = new File("LuckyInjector");
 
         if (!dataFolder.exists())
             dataFolder.mkdir();

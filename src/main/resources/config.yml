@@ -1,0 +1,5 @@
+sql:
+  host: localhost
+  port: '3066'
+  username: root
+  password: password123
