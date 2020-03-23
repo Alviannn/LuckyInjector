@@ -23,7 +23,9 @@ public class SpigotInjector extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+
         Loader.startInjecting(this.getClass());
+        Loader.initConfig(this.getClass());
     }
 
     /**
@@ -34,31 +36,7 @@ public class SpigotInjector extends JavaPlugin {
             instance = new SpigotInjector();
 
         Loader.startInjecting(instance.getClass());
-    }
-
-    /**
-     * initializes the config file before the normal load (this is an early load)
-     */
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    private static void initConfig() {
-        File dataFolder = new File("LuckyInjector");
-        if (!dataFolder.exists())
-            dataFolder.mkdir();
-
-        File configFile = new File(dataFolder, "config.yml");
-        if (configFile.exists())
-            return;
-
-        try (Closer closer = new Closer()) {
-            InputStream stream = SpigotInjector.class.getResourceAsStream("config.yml");
-            if (stream == null)
-                return;
-
-            closer.add(stream);
-            Files.copy(stream, configFile.toPath());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Loader.initConfig(instance.getClass());
     }
 
 
@@ -74,9 +52,9 @@ public class SpigotInjector extends JavaPlugin {
      */
     @SneakyThrows
     public static SQLBuilder getDefaultSQLBuilder() {
-        initConfig();
+        Loader.initConfig(instance.getClass());
 
-        File configFile = new File("LuckyInjector", "config.yml");
+        File configFile = Loader.CONFIG_FILE;
         FileConfiguration config = YamlConfiguration.loadConfiguration(configFile);
 
         return SQLHelper.newBuilder(SQLHelper.Type.MYSQL)
