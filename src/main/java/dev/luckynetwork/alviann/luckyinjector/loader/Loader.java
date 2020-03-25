@@ -51,6 +51,7 @@ public class Loader {
 
         try (Closer closer = new Closer()) {
             InputStream stream = clazz.getClassLoader().getResourceAsStream("config.yml");
+
             if (stream == null)
                 throw new NullPointerException("Cannot find config.yml!");
 

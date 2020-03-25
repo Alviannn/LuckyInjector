@@ -15,10 +15,10 @@
 -docencoding
 'UTF-8'
 -doctitle
-'LuckyInjector 1.4.9 API'
+'LuckyInjector 1.5.0 API'
 -linkoffline
 'https://docs.oracle.com/javase/8/docs/api' 'F:/Data/intellij_data/IdeaProjects/LuckyInjector/target/javadoc-bundle-options'
 -use
 -version
 -windowtitle
-'LuckyInjector 1.4.9 API'
+'LuckyInjector 1.5.0 API'
