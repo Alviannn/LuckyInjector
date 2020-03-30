@@ -38,7 +38,7 @@ public class SpigotInjector extends JavaPlugin {
      * <pre><code>
      *     SQLBuilder builder = ...;
      *     builder.setDatabase("the database name");
-     * </code><pre/>
+     * </code></pre>
      */
     @SneakyThrows
     public static SQLBuilder getDefaultSQLBuilder() {
