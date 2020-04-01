@@ -6,7 +6,7 @@
 
     <groupId>dev.luckynetwork.alviann.luckyinjector</groupId>
     <artifactId>LuckyInjector</artifactId>
-    <version>1.5.2</version>
+    <version>1.5.3</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -181,7 +181,7 @@
         <dependency>
             <groupId>com.github.Alviannn</groupId>
             <artifactId>SQLHelper</artifactId>
-            <version>2.5</version>
+            <version>2.5.1</version>
             <scope>provided</scope>
         </dependency>
 
