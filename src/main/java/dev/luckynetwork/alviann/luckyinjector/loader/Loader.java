@@ -33,7 +33,7 @@ public class Loader {
         Path dirPath = DATA_FOLDER.toPath();
         Map<String, String> downloadMap = new HashMap<>();
 
-        downloadMap.put("SQLHelper-2.5.2.jar", "https://jitpack.io/com/github/Alviannn/SQLHelper/2.5.2/SQLHelper-2.5.2.jar");
+        downloadMap.put("SQLHelper-2.5.3.jar", "https://jitpack.io/com/github/Alviannn/SQLHelper/2.5.3/SQLHelper-2.5.3.jar");
 
         helper.download(downloadMap, dirPath);
         helper.load(downloadMap, dirPath);
