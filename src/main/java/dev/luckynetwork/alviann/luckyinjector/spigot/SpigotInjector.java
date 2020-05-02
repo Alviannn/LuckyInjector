@@ -3,8 +3,10 @@ package dev.luckynetwork.alviann.luckyinjector.spigot;
 import com.github.alviannn.sqlhelper.SQLBuilder;
 import com.github.alviannn.sqlhelper.SQLHelper;
 import dev.luckynetwork.alviann.luckyinjector.loader.Loader;
+import dev.luckynetwork.alviann.luckyinjector.updater.Updater;
 import lombok.Getter;
 import lombok.SneakyThrows;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -14,12 +16,29 @@ import java.io.File;
 public class SpigotInjector extends JavaPlugin {
 
     @Getter private static SpigotInjector instance;
+    @Getter private Updater updater;
 
     @SneakyThrows
     @Override
     public void onEnable() {
         instance = this;
+        updater = new Updater();
+
         SpigotInjector.loadEarly();
+
+        // auto update task
+        Bukkit.getScheduler().runTaskTimer(this, () -> updater.fetchUpdateAsync().whenComplete((result, error) -> {
+            if (error != null) {
+                System.err.println(error.getMessage());
+                return;
+            }
+
+            if (!result)
+                return;
+
+            if (updater.checkUpdate())
+                updater.update(instance.getDataFolder(), true);
+        }), 20L, 600L);
     }
 
     /**

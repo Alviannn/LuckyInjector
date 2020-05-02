@@ -6,7 +6,7 @@
 
     <groupId>dev.luckynetwork.alviann.luckyinjector</groupId>
     <artifactId>LuckyInjector</artifactId>
-    <version>1.5.5</version>
+    <version>1.5.6</version>
     <packaging>jar</packaging>
 
     <properties>
