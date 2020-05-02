@@ -37,7 +37,7 @@ public class BungeeInjector extends Plugin {
                 return;
 
             if (updater.checkUpdate())
-                updater.update(instance.getDataFolder(), true);
+                updater.update(instance.getDataFolder().getParentFile(), true);
         }), 1L, 30L, TimeUnit.SECONDS);
     }
 

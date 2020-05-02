@@ -62,7 +62,7 @@ public class Updater {
 
             fetchedUpdateInfo = true;
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
 
         return fetchedUpdateInfo;
@@ -85,7 +85,7 @@ public class Updater {
             if (scanner.hasNext())
                 currentVersion = scanner.nextLine();
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
 
         if (currentVersion == null)
@@ -114,16 +114,18 @@ public class Updater {
                 if (stream == null)
                     throw new NullPointerException("Cannot fetch the stream!");
 
-                File updatedFile = new File(pluginsFolder, url.getFile());
-                // creates the plugin folder if needed
-                if (!pluginsFolder.exists())
-                    pluginsFolder.mkdir();
+                File updatedFile = new File(pluginsFolder, new File(url.getFile()).getName());
+                if (!updatedFile.exists()) {
+                    // creates the plugin folder if needed
+                    if (!pluginsFolder.exists())
+                        pluginsFolder.mkdir();
 
-                // downloads the file
-                Files.copy(stream, updatedFile.toPath());
-                updateSuccess = true;
+                    // downloads the file
+                    Files.copy(stream, updatedFile.toPath());
+                    updateSuccess = true;
+                }
             } catch (Exception e) {
-                System.err.println(e.getMessage());
+                e.printStackTrace();
             }
 
             if (!updateSuccess)
@@ -135,7 +137,7 @@ public class Updater {
 
             // deletes the current plugin file
             // if the file is successfully updated
-            pluginFile.delete();
+            pluginFile.deleteOnExit();
         };
 
         if (async)
@@ -152,7 +154,7 @@ public class Updater {
         try {
             return new File(Updater.class.getProtectionDomain().getCodeSource().getLocation().toURI());
         } catch (URISyntaxException e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
         return null;
     }

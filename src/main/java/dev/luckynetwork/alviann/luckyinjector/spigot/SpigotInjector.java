@@ -37,7 +37,7 @@ public class SpigotInjector extends JavaPlugin {
                 return;
 
             if (updater.checkUpdate())
-                updater.update(instance.getDataFolder(), true);
+                updater.update(instance.getDataFolder().getParentFile(), true);
         }), 20L, 600L);
     }
 
