@@ -25,15 +25,12 @@ public class Loader {
     public static void startInjecting(Class<?> clazz) throws Exception {
         DependencyHelper helper = new DependencyHelper(clazz.getClassLoader());
 
-        if (!DATA_FOLDER.getParentFile().exists())
-            DATA_FOLDER.getParentFile().mkdir();
-        if (!DATA_FOLDER.exists())
-            DATA_FOLDER.mkdir();
+        DATA_FOLDER.mkdirs();
 
         Path dirPath = DATA_FOLDER.toPath();
         Map<String, String> downloadMap = new HashMap<>();
 
-        downloadMap.put("SQLHelper-2.5.3.jar", "https://jitpack.io/com/github/Alviannn/SQLHelper/2.5.3/SQLHelper-2.5.3.jar");
+        downloadMap.put("SQLHelper-2.5.4.jar", "https://github.com/Alviannn/SQLHelper/releases/download/2.5.4/SQLHelper-2.5.4.jar");
 
         helper.download(downloadMap, dirPath);
         helper.load(downloadMap, dirPath);
@@ -44,18 +41,19 @@ public class Loader {
      *
      * @param clazz the main class
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @SneakyThrows
     public static void initConfig(Class<?> clazz) {
+        DATA_FOLDER.mkdirs();
         if (CONFIG_FILE.exists())
             return;
 
         try (Closer closer = new Closer()) {
-            InputStream stream = clazz.getClassLoader().getResourceAsStream("config.yml");
+            InputStream stream = closer.add(clazz.getClassLoader().getResourceAsStream("config.yml"));
 
             if (stream == null)
-                throw new NullPointerException("Cannot find config.yml!");
+                throw new NullPointerException("Cannot find config.yml file!");
 
-            closer.add(stream);
             Files.copy(stream, CONFIG_FILE.toPath());
         }
     }

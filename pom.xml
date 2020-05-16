@@ -6,7 +6,7 @@
 
     <groupId>dev.luckynetwork.alviann.luckyinjector</groupId>
     <artifactId>LuckyInjector</artifactId>
-    <version>1.5.6</version>
+    <version>1.5.7</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -111,26 +111,6 @@
                             <shadedPattern>${project.groupId}.lib.apache.commons</shadedPattern>
                         </relocation>
                     </relocations>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.2.0</version>
-
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>javadoc</goal>
-                        </goals>
-                    </execution>
-                </executions>
-
-                <configuration>
-                    <reportOutputDirectory>docs</reportOutputDirectory>
-                    <destDir>docs</destDir>
                 </configuration>
             </plugin>
         </plugins>
@@ -258,6 +238,20 @@
             <version>1.14</version>
             <scope>compile</scope>
         </dependency>
+        <!-- Apache Commons Compress (Archive/Zip Libraries) -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.20</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- Apache Commons Collections -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+            <scope>compile</scope>
+        </dependency>
 
         <!-- Google Json -->
         <dependency>
@@ -272,6 +266,14 @@
             <artifactId>guava</artifactId>
             <version>29.0-jre</version>
             <scope>compile</scope>
+        </dependency>
+
+        <!-- JUnit  for testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

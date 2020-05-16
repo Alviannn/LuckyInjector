@@ -4,3 +4,6 @@ main: ${project.groupId}.spigot.SpigotInjector
 
 authors: [Alviann]
 description: ${plugin.description}
+
+commands:
+  luckyinjector:
