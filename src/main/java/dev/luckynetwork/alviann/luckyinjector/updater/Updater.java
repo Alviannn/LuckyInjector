@@ -25,53 +25,59 @@ public class Updater {
     private String latestVersion, latestDownloadUrl;
 
     /**
-     * fetches for the new update in async
+     * fetches for the new update asynchronously
+     * <br><br>
+     * to get it synchronously you can do it like this
+     * <pre><code>
+     *     Updater updater = ...;
+     *     try {
+     *         boolean hasUpdate = updater.fetchUpdate().join();
+     *         // do other stuff
+     *     } catch (Exception e) {
+     *         e.printStackTrace();
+     *     }
+     * </code></pre>
      */
-    public CompletableFuture<Boolean> fetchUpdateAsync() {
-        return CompletableFuture.supplyAsync(this::fetchUpdate);
+    public CompletableFuture<Boolean> fetchUpdate() {
+        return CompletableFuture.supplyAsync(() -> {
+            OkHttpClient client = new OkHttpClient.Builder()
+                    .connectTimeout(30L, TimeUnit.SECONDS)
+                    .readTimeout(30L, TimeUnit.SECONDS)
+                    .build();
+
+            Request request = new Request.Builder()
+                    .url("https://raw.githubusercontent.com/Alviannn/LuckyInjector/master/update-info.json")
+                    .header("User-Agent", "Mozilla/5.0")
+                    .get()
+                    .build();
+
+            boolean fetchedUpdateInfo = false;
+            try (Closer closer = new Closer()) {
+                Response response = client.newCall(request).execute();
+                ResponseBody body = closer.add(response.body());
+
+                if (body == null)
+                    throw new NullPointerException("Body is null");
+
+                Reader reader = closer.add(body.charStream());
+                JsonObject updateInfo = JsonParser.parseReader(reader).getAsJsonObject();
+
+                latestVersion = updateInfo.get("version").getAsString();
+                latestDownloadUrl = updateInfo.get("download-url").getAsString();
+
+                fetchedUpdateInfo = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return fetchedUpdateInfo;
+        });
     }
 
     /**
-     * fetches for the new update in sync
+     * checks if the plugin can update with the new version
      */
-    public boolean fetchUpdate() {
-        OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(30L, TimeUnit.SECONDS)
-                .readTimeout(30L, TimeUnit.SECONDS)
-                .build();
-
-        Request request = new Request.Builder()
-                .url("https://raw.githubusercontent.com/Alviannn/LuckyInjector/master/update-info.json")
-                .header("User-Agent", "Mozilla/5.0")
-                .get()
-                .build();
-
-        boolean fetchedUpdateInfo = false;
-        try (Closer closer = new Closer()) {
-            Response response = client.newCall(request).execute();
-            ResponseBody body = closer.add(response.body());
-
-            if (body == null)
-                throw new NullPointerException("Body is null");
-
-            Reader reader = closer.add(body.charStream());
-            JsonObject updateInfo = JsonParser.parseReader(reader).getAsJsonObject();
-
-            latestVersion = updateInfo.get("version").getAsString();
-            latestDownloadUrl = updateInfo.get("download-url").getAsString();
-
-            fetchedUpdateInfo = true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return fetchedUpdateInfo;
-    }
-
-    /**
-     * checks if the plugin is updatable
-     */
-    public boolean checkUpdate() {
+    public boolean canUpdate() {
         ClassLoader loader = this.getClass().getClassLoader();
         String currentVersion = null;
 
@@ -100,8 +106,8 @@ public class Updater {
      * starts updating the plugin
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public void update(File pluginsFolder, boolean async) {
-        Runnable runnable = () -> {
+    public CompletableFuture<Void> initiateUpdate(File pluginsFolder) {
+        return CompletableFuture.runAsync(() -> {
             boolean updateSuccess = false;
 
             if (latestDownloadUrl == null)
@@ -135,15 +141,9 @@ public class Updater {
             if (pluginFile == null || !pluginFile.exists())
                 return;
 
-            // deletes the current plugin file
-            // if the file is successfully updated
-            pluginFile.deleteOnExit();
-        };
-
-        if (async)
-            CompletableFuture.runAsync(runnable);
-        else
-            runnable.run();
+            // deletes the current plugin file once the file is successfully updated
+            pluginFile.delete();
+        });
     }
 
     /**

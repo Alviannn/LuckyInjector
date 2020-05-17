@@ -41,7 +41,7 @@ public class BungeeInjector extends Plugin {
             if (!this.isAutoUpdate())
                 return;
 
-            updater.fetchUpdateAsync().whenComplete((result, error) -> {
+            updater.fetchUpdate().whenComplete((result, error) -> {
                 if (error != null) {
                     System.err.println(error.getMessage());
                     return;
@@ -49,9 +49,14 @@ public class BungeeInjector extends Plugin {
 
                 if (!result)
                     return;
+                if (!updater.canUpdate())
+                    return;
 
-                if (updater.checkUpdate())
-                    updater.update(instance.getDataFolder().getParentFile(), true);
+                try {
+                    updater.initiateUpdate(instance.getDataFolder().getParentFile()).join();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             });
         }, 1L, 30L, TimeUnit.SECONDS);
 

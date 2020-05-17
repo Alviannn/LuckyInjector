@@ -35,7 +35,7 @@ public class SpigotInjector extends JavaPlugin {
             if (!this.isAutoUpdate())
                 return;
 
-            updater.fetchUpdateAsync().whenComplete((result, error) -> {
+            updater.fetchUpdate().whenComplete((result, error) -> {
                 if (error != null) {
                     System.err.println(error.getMessage());
                     return;
@@ -43,9 +43,10 @@ public class SpigotInjector extends JavaPlugin {
 
                 if (!result)
                     return;
+                if (!updater.canUpdate())
+                    return;
 
-                if (updater.checkUpdate())
-                    updater.update(instance.getDataFolder().getParentFile(), true);
+                updater.initiateUpdate(instance.getDataFolder().getParentFile()).join();
             });
         }, 20L, 600L);
 
