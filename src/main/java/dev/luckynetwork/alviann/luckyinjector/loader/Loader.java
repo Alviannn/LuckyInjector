@@ -31,6 +31,7 @@ public class Loader {
         Map<String, String> downloadMap = new HashMap<>();
 
         downloadMap.put("SQLHelper-2.5.4.jar", "https://github.com/Alviannn/SQLHelper/releases/download/2.5.4/SQLHelper-2.5.4.jar");
+        downloadMap.put("relocated-netty-all-4.1.50.jar", "https://github.com/Lucky-Development-Department/Jar-Repository/raw/master/repo/netty/relocated-netty-all-4.1.50.jar");
 
         helper.download(downloadMap, dirPath);
         helper.load(downloadMap, dirPath);
