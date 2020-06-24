@@ -1,8 +1,9 @@
 package dev.luckynetwork.alviann.luckyinjector.updater;
 
-import com.github.alviannn.sqlhelper.utils.Closer;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import dev.luckynetwork.alviann.luckyinjector.closer.Closer;
+import dev.luckynetwork.alviann.luckyinjector.loader.Loader;
 import lombok.Getter;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -10,8 +11,9 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.jetbrains.annotations.Nullable;
 
-import java.io.*;
-import java.net.URISyntaxException;
+import java.io.File;
+import java.io.InputStream;
+import java.io.Reader;
 import java.net.URL;
 import java.nio.file.Files;
 import java.util.Scanner;
@@ -137,26 +139,13 @@ public class Updater {
             if (!updateSuccess)
                 return;
 
-            File pluginFile = this.getCurrentPluginFile();
+            File pluginFile = Loader.getCurrentPluginFile();
             if (pluginFile == null || !pluginFile.exists())
                 return;
 
             // deletes the current plugin file once the file is successfully updated
             pluginFile.delete();
         });
-    }
-
-    /**
-     * gets the plugin file
-     */
-    @Nullable
-    private File getCurrentPluginFile() {
-        try {
-            return new File(Updater.class.getProtectionDomain().getCodeSource().getLocation().toURI());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
 }
