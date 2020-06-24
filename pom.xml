@@ -73,7 +73,7 @@
                     <relocations>
                         <relocation>
                             <pattern>com.github.alviannn.lib.dependencyhelper</pattern>
-                            <shadedPattern>${project.groupId}.lib.helper</shadedPattern>
+                            <shadedPattern>${project.groupId}.helper</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>com.google.gson</pattern>
