@@ -29,7 +29,7 @@ public class BungeeInjector extends Plugin {
     @Override
     public void onEnable() {
         instance = this;
-        updater = new Updater();
+        updater = new Updater(this.getLogger());
 
         BungeeInjector.loadEarly();
 

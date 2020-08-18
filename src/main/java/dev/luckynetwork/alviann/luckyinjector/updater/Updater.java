@@ -5,6 +5,7 @@ import com.google.gson.JsonParser;
 import dev.luckynetwork.alviann.luckyinjector.closer.Closer;
 import dev.luckynetwork.alviann.luckyinjector.loader.Loader;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -19,12 +20,14 @@ import java.nio.file.Files;
 import java.util.Scanner;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
+@RequiredArgsConstructor
 @Getter
 public class Updater {
 
-    @Nullable
-    private String latestVersion, latestDownloadUrl;
+    @Nullable private String latestVersion, latestDownloadUrl;
+    @Getter private final Logger logger;
 
     /**
      * fetches for the new update asynchronously
@@ -79,6 +82,7 @@ public class Updater {
     /**
      * checks if the plugin can update with the new version
      */
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean canUpdate() {
         ClassLoader loader = this.getClass().getClassLoader();
         String currentVersion = null;
@@ -114,6 +118,9 @@ public class Updater {
 
             if (latestDownloadUrl == null)
                 throw new NullPointerException("Latest download URL is null");
+
+            logger.warning("Found a new version of LuckyInjector (" + latestVersion + ")!");
+            logger.warning("Downloading LuckyInjector version " + latestVersion + "!");
 
             try (Closer closer = new Closer()) {
                 URL url = new URL(latestDownloadUrl);

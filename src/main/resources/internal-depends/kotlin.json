@@ -1,43 +1,40 @@
 [
   {
-    "name": "annotations-19.0.0.jar",
-    "url": "https://repo1.maven.org/maven2/org/jetbrains/annotations/19.0.0/annotations-19.0.0.jar"
+    "name": "annotations-20.0.0.jar",
+    "url": "https://repo1.maven.org/maven2/org/jetbrains/annotations/20.0.0/annotations-20.0.0.jar"
   },
 
 
   {
-    "name": "kotlin-stdlib-1.3.72.jar",
-    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.3.72/kotlin-stdlib-1.3.72.jar"
+    "name": "kotlin-stdlib-1.4.0.jar",
+    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib/1.4.0/kotlin-stdlib-1.4.0.jar"
   },
   {
-    "name": "kotlin-stdlib-jdk7-1.3.72.jar",
-    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.3.72/kotlin-stdlib-jdk7-1.3.72.jar"
+    "name": "kotlin-stdlib-jdk7-1.4.0.jar",
+    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.4.0/kotlin-stdlib-jdk7-1.4.0.jar"
   },
   {
-    "name": "kotlin-stdlib-jdk8-1.3.72.jar",
-    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.3.72/kotlin-stdlib-jdk8-1.3.72.jar"
+    "name": "kotlin-stdlib-jdk8-1.4.0.jar",
+    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.4.0/kotlin-stdlib-jdk8-1.4.0.jar"
+  },
+
+
+  {
+    "name": "kotlin-stdlib-common-1.4.0.jar",
+    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.4.0/kotlin-stdlib-common-1.4.0.jar"
+  },
+  {
+    "name": "kotlin-reflect-1.4.0.jar",
+    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-reflect/1.4.0/kotlin-reflect-1.4.0.jar"
   },
 
 
   {
-    "name": "kotlin-stdlib-common-1.3.72.jar",
-    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.72/kotlin-stdlib-common-1.3.72.jar"
+    "name": "kotlinx-coroutines-core-1.3.9.jar",
+    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-coroutines-core/1.3.9/kotlinx-coroutines-core-1.3.9.jar"
   },
   {
-    "name": "kotlin-reflect-1.3.72.jar",
-    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-reflect/1.3.72/kotlin-reflect-1.3.72.jar"
-  },
-
-  {
-    "name": "kotlinx-coroutines-core-1.3.7.jar",
-    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-coroutines-core/1.3.7/kotlinx-coroutines-core-1.3.7.jar"
-  },
-  {
-    "name": "kotlinx-coroutines-core-common-1.3.7.jar",
-    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-coroutines-core-common/1.3.7/kotlinx-coroutines-core-common-1.3.7.jar"
-  },
-  {
-    "name": "kotlinx-coroutines-jdk8-1.3.7.jar",
-    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-coroutines-jdk8/1.3.7/kotlinx-coroutines-jdk8-1.3.7.jar"
+    "name": "kotlinx-coroutines-jdk8-1.3.9.jar",
+    "url": "https://repo1.maven.org/maven2/org/jetbrains/kotlinx/kotlinx-coroutines-jdk8/1.3.9/kotlinx-coroutines-jdk8-1.3.9.jar"
   }
 ]

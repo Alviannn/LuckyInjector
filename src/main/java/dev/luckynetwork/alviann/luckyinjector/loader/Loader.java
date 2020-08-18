@@ -14,7 +14,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,7 +35,6 @@ public class Loader {
         DependencyHelper helper = new DependencyHelper(clazz.getClassLoader());
 
         DATA_FOLDER.mkdirs();
-        Path dirPath = DATA_FOLDER.toPath();
 
         File pluginFile = Loader.getCurrentPluginFile();
         if (pluginFile == null || !pluginFile.exists())
@@ -82,8 +80,16 @@ public class Loader {
             }
         }
 
-        helper.download(dependenciesMap, dirPath);
-        helper.load(dependenciesMap, dirPath);
+        File libsDir = new File(DATA_FOLDER, "libraries");
+        libsDir.mkdirs();
+
+        File[] jarFiles = DATA_FOLDER.listFiles(file -> file.getName().endsWith(".jar"));
+        // deletes all jar files inside the data folder
+        for (File file : jarFiles)
+            file.delete();
+
+        helper.download(dependenciesMap, libsDir.toPath());
+        helper.load(dependenciesMap, libsDir.toPath());
     }
 
     /**
