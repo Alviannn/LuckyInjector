@@ -61,7 +61,8 @@ public class Loader {
                     InputStream resource = closer.add(jarFile.getInputStream(entry));
                     InputStreamReader streamReader = closer.add(new InputStreamReader(resource));
 
-                    JsonElement rawJson = JsonParser.parseReader(streamReader);
+                    JsonParser parser = new JsonParser();
+                    JsonElement rawJson = parser.parse(streamReader);
                     JsonArray dependencies = rawJson.getAsJsonArray();
 
                     if (dependencies.size() == 0)

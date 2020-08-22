@@ -65,7 +65,8 @@ public class Updater {
                     throw new NullPointerException("Body is null");
 
                 Reader reader = closer.add(body.charStream());
-                JsonObject updateInfo = JsonParser.parseReader(reader).getAsJsonObject();
+                JsonParser parser = new JsonParser();
+                JsonObject updateInfo = parser.parse(reader).getAsJsonObject();
 
                 latestVersion = updateInfo.get("version").getAsString();
                 latestDownloadUrl = updateInfo.get("download-url").getAsString();

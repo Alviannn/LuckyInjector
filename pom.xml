@@ -6,7 +6,7 @@
 
     <groupId>dev.luckynetwork.alviann.luckyinjector</groupId>
     <artifactId>LuckyInjector</artifactId>
-    <version>1.6.3</version>
+    <version>1.6.4</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -83,36 +83,12 @@
                             <shadedPattern>${project.groupId}.helper</shadedPattern>
                         </relocation>
                         <relocation>
-                            <pattern>com.google.gson</pattern>
-                            <shadedPattern>${project.groupId}.lib.google.gson</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>com.google.common</pattern>
-                            <shadedPattern>${project.groupId}.lib.google.common</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>com.google.errorprone.annotations</pattern>
-                            <shadedPattern>${project.groupId}.lib.google.errorprone.annotations</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>com.google.j2objc.annotations</pattern>
-                            <shadedPattern>${project.groupId}.lib.google.j2objc.annotations</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>com.google.thirdparty.publicsuffix</pattern>
-                            <shadedPattern>${project.groupId}.lib.google.thirdparty.publicsuffix</shadedPattern>
-                        </relocation>
-                        <relocation>
                             <pattern>okhttp3</pattern>
                             <shadedPattern>${project.groupId}.lib.okhttp3</shadedPattern>
                         </relocation>
                         <relocation>
                             <pattern>okio</pattern>
                             <shadedPattern>${project.groupId}.lib.okio</shadedPattern>
-                        </relocation>
-                        <relocation>
-                            <pattern>org.apache</pattern>
-                            <shadedPattern>${project.groupId}.lib.apache</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>
@@ -210,64 +186,6 @@
                     <artifactId>kotlin-stdlib-jdk7</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-
-        <!-- Apache IO Library -->
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.7</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- Apache Codec Library -->
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.14</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- Apache Language3 Library -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.11</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- Apache Compress Library -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-compress</artifactId>
-            <version>1.20</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- Apache Collections Library -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-collections4</artifactId>
-            <version>4.4</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- Apache Http Library -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.12</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <!-- Google Json (GSON) -->
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.8.6</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- Google Guava (bunch of libraries) -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>29.0-jre</version>
-            <scope>compile</scope>
         </dependency>
 
         <!-- Jetbrains Annotations -->
