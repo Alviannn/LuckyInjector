@@ -156,7 +156,7 @@
         <dependency>
             <groupId>org.cache2k</groupId>
             <artifactId>cache2k-base-bom</artifactId>
-            <version>1.2.4.Final</version>
+            <version>1.4.1.Final</version>
             <type>pom</type>
             <scope>compile</scope>
         </dependency>
