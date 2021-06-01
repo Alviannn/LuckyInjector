@@ -1,0 +1,22 @@
+[
+  {
+    "name": "commons-pool2-2.9.0.jar",
+    "url": "https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.9.0/commons-pool2-2.9.0.jar"
+  },
+  {
+    "name": "jedis-3.3.0.jar",
+    "url": "https://repo1.maven.org/maven2/redis/clients/jedis/3.3.0/jedis-3.3.0.jar"
+  },
+  {
+    "name": "gson-2.8.6.jar",
+    "url": "https://repo1.maven.org/maven2/com/google/code/gson/gson/2.8.6/gson-2.8.6.jar"
+  },
+  {
+    "name": "guava-30.0-jre.jar",
+    "url": "https://repo1.maven.org/maven2/com/google/guava/guava/30.0-jre/guava-30.0-jre.jar"
+  },
+  {
+    "name": "slf4j-api-1.7.30.jar",
+    "url": "https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar"
+  }
+]
